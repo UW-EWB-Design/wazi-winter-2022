@@ -1,23 +1,26 @@
 <template>
 	<div class="Sessions">
-		<div class="shadow-md border-2 border-gray-100 rounded w-96 h-80 mx-auto my-8 md:w-80 p-5">
-			<div class="text-left">
-				<h1 class="text-base">Sessions</h1>
-			</div>
-			<div class="flex flex-row justify-evenly my-4">
-				<div class="flex-col justify-between h-32 w-40 p-4 border-2 border-gray-100">
-                    <p class="text-3xl">24</p>
-					<p class="text-sm">Therapy Sessions Completed</p>
+		<div class="max-w-md mx-auto shadow-md border-2 border-gray-100 rounded shadow-md overflow-hidden md:max-w-2xl md:flex">
+			<div class="p-4">
+				<div class="text-left text-base">Sessions</div>
+				<div class="flex flex-row justify-between my-4">
+                    <!-- Session Stats -->
+					<div class="flex-col content-center h-24 w-36 p-2 border border-gray-200">
+						<p class="text-3xl">24</p>
+						<p class="text-sm text-center">Therapy Sessions Completed</p>
+					</div>
+					<div class="flex-col content-center h-24 w-36 p-2 px-4 border border-gray-200">
+						<p class="text-3xl">3</p>
+						<p class="text-sm text-center">Therapists Spoken To</p>
+					</div>
 				</div>
-				<div class="flex-col justify-between h-32 w-40 p-4 border-2 border-gray-100">
-                    <p class="text-3xl">3</p>
-					<p class="text-sm">Therapists Spoken To</p>
-				</div>
+				<button class="relative font-bold rounded px-6 py-2 w-full border border-blue-700 text-blue-700 hover:bg-blue-600 hover:text-white">
+					<span class="absolute left-4 text-lg leading-tight">+</span>Book a Session
+				</button>
 			</div>
-			<button class="text-base font-bold border-2 border-blue-700 text-blue-700 rounded px-6 py-2 w-11/12">Book a Session</button>
-            <div class="py-5">
-                <p class="text-xs text-left">Recent Sessions</p>
-            </div>
+			<div class="pt-5 px-4 text-xs text-left">Recent Sessions</div>
+            <!-- Recent Sessions -->
+			<div class="w-full h-32"></div>
 		</div>
 	</div>
 </template>
