@@ -2,7 +2,7 @@
 	<div class="home">
 		<div class="p-4">
 			<h1 class="text-blue-500">This is the home page</h1>
-			<Sessions :sessions="sessions"/>
+			<Sessions :sessions="sessions" :userTherapists="userTherapists" />
 		</div>
 	</div>
 </template>
@@ -13,26 +13,63 @@ import Sessions from "../components/sessions/Sessions.vue";
 export default {
 	name: "Home",
 	components: { Sessions },
-    data() {
-        return {
-            sessions: [
+	data() {
+		return {
+			sessions: [
+				{
+					therapist: "Dr.Smith",
+					datetime: "2021-11-04T21:53:22+00:00",
+					notes: "Reason/Additional Note for Session",
+                    completed: true,
+                    id: 1,
+				},
                 {
-                    therapist: "Dr.Smith",
-                    datetime: "2021-11-04T21:53:22+00:00",
-                    notes: "Reason/Additional Note for Session"
+					therapist: "Dr.Lee",
+					datetime: "2021-11-04T21:53:22+00:00",
+					notes: "Reason/Additional Note for Session",
+                    completed: true,
+                    id: 2,
+				},
+                {
+					therapist: "Dr.Lee",
+					datetime: "2021-11-04T21:53:22+00:00",
+					notes: "Reason/Additional Note for Session",
+                    completed: false,
+                    id: 3,
+				},
+                {
+					therapist: "Dr.Lee",
+					datetime: "2021-11-04T21:53:22+00:00",
+					notes: "Reason/Additional Note for Session",
+                    completed: false,
+                    id: 4,
+				},
+                {
+					therapist: "Dr.Lee",
+					datetime: "2021-11-04T21:53:22+00:00",
+					notes: "Reason/Additional Note for Session",
+                    completed: false,
+                    id: 5,
+				},{
+					therapist: "Dr.Lee",
+					datetime: "2021-11-04T21:53:22+00:00",
+					notes: "Reason/Additional Note for Session",
+                    completed: false,
+                    id: 6,
+				},
+			],
+            userTherapists: [
+                {
+                    name: "Smith",
                 },
                 {
-                    therapist: "Dr.Lee",
-                    datetime: "2021-11-04T21:53:22+00:00",
-                    notes: "Reason/Additional Note for Session"
+                    name: "Lee",
                 },
                 {
-                    therapist: "Dr.Doctor",
-                    datetime: "2021-11-04T21:53:22+00:00",
-                    notes: "Reason/Additional Note for Session"
+                    name: "John",
                 },
             ]
-        }
-    }
+		};
+	},
 };
 </script>
