@@ -32,6 +32,7 @@
 				<div class="pb-2 px-4 md:px-0 text-xs text-left">Recent Sessions</div>
 				<div class="bg-gray-200 flex flex-col h-5/6">
 					<ul>
+                        <!-- List of sessions -->
 						<li v-for="session in recentSessions" :key="session.id">
 							<DemoSessionCard :session="session"/>
 						</li>
