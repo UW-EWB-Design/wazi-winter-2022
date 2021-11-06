@@ -1,6 +1,6 @@
 <template>
 	<div class="Sessions">
-		<div class="max-w-md mx-auto shadow-md border-2 border-gray-100 rounded-sm overflow-hidden md:max-w-2xl md:flex">
+		<div class="max-w-md mx-auto shadow-md border-2 border-gray-100 rounded-sm overflow-hidden md:max-w-2xl">
 			<div class="p-4 w-full">
 				<div class="text-left text-base">Sessions</div>
 				<!-- No sessions -->
@@ -28,13 +28,13 @@
 				</button>
 			</div>
 			<!-- Recent Sessions -->
-			<div v-if="totalSessions > 0" class="pb-2 pr-2 md:pt-8 w-full">
-				<div class="pb-2 px-4 md:px-0 text-xs text-left">Recent Sessions</div>
-				<div class="bg-gray-200 flex flex-col h-5/6">
+			<div v-if="totalSessions > 0" class="pb-2 pr-2 w-full">
+				<div class="pb-2 px-4 text-xs text-left">Recent Sessions</div>
+				<div class=" flex flex-col h-5/6">
 					<ul>
                         <!-- List of sessions -->
 						<li v-for="session in recentSessions" :key="session.id">
-							<DemoSessionCard :session="session"/>
+							<SessionCard :session="session"/>
 						</li>
 					</ul>
 				</div>
@@ -44,11 +44,11 @@
 </template>
 
 <script>
-import DemoSessionCard from "./DemoSessionCard.vue";
+import SessionCard from "./SessionCard.vue";
 export default {
 	name: "Sessions",
 	props: { sessions: Array, userTherapists: Array },
-	components: { DemoSessionCard },
+	components: { SessionCard },
 	data() {
 		return {
 			totalSessions: this.sessions.length,
