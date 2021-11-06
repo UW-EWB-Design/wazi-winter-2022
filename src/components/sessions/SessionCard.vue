@@ -6,7 +6,7 @@
 					<b>{{ session.therapist }} - {{session.time}} Session</b>
 					<div class="flex justify-around w-1/6">
 						<p>{{session.date}}</p>
-						<p class="text-gray-400 hover:text-blue-800">></p>
+						<p class="text-gray-400 hover:text-blue-800" href="#">></p>
 					</div>
 					
 				</div>
