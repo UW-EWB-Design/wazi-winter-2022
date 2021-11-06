@@ -23,20 +23,38 @@
 					</div>
 				</div>
 				<!-- Book a session -->
-				<button class="relative font-bold rounded-sm px-6 py-2 my-2 w-full border border-blue-800 text-blue-800 duration-300 hover:bg-blue-600 hover:text-white cursor-pointer">
+				<button
+					class="
+						relative
+						font-bold
+						rounded-sm
+						px-6
+						py-2
+						my-2
+						w-full
+						border border-blue-800
+						text-blue-800
+						duration-300
+						hover:bg-blue-600 hover:text-white
+						cursor-pointer
+					"
+				>
 					<span class="absolute left-4 text-lg leading-tight">+</span>Book a Session
 				</button>
 			</div>
 			<!-- Recent Sessions -->
 			<div v-if="totalSessions > 0" class="pb-2 pr-2 w-full">
-				<div class="pb-2 px-4 text-xs text-left">Recent Sessions</div>
-				<div class=" flex flex-col h-5/6">
+				<div class="pb-2 px-4 text-sm text-left">Recent Sessions</div>
+				<div class="flex flex-col h-5/6">
 					<ul>
-                        <!-- List of sessions -->
+						<!-- List of sessions -->
 						<li v-for="session in recentSessions" :key="session.id">
-							<SessionCard :session="session"/>
+							<SessionCard :session="session" />
 						</li>
 					</ul>
+				</div>
+				<div class="pt-2">
+					<a class="text-sm underline cursor-pointer hover:bold" href="#">See all sessions</a>
 				</div>
 			</div>
 		</div>
