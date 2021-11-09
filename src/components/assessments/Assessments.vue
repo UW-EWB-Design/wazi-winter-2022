@@ -2,8 +2,11 @@
 	<div class="Assessments">
 		<div class="max-w-md mx-auto shadow-md border-2 border-gray-100 rounded-sm overflow-hidden md:max-w-2xl">
 			<div class="p-4 w-full">
-				<div class="text-left text-base">Assessments</div>
-				
+				<div class="text-left text-base pb-5">Assessments</div>
+				<!-- No sessions -->
+				<div v-if="totalAssessments === 0" class="pb-5 text-sm">
+					<p>You have not taken any assessments yet.</p>
+				</div>
 				<!-- Take an Assessment -->
 				<AssessmentButton />
 			</div>

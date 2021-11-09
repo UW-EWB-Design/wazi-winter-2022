@@ -1,7 +1,7 @@
 <template>
 	<div class="AssessmentCard">
 		<div class="w-full text-left text-sm border border-gray-200 hover:bg-gray-100 cursor-pointer">
-			<div class="border-l-2 border-blue-800 p-4">
+			<div class="border-l-2 border-yellow-500 p-4">
 				<div class="flex flex-row justify-between">
 					<b>{{ assessment.name }}</b>
 					<div class="flex justify-around w-1/6">

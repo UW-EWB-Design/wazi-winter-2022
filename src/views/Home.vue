@@ -1,8 +1,9 @@
 <template>
 	<div class="home">
 		<div class="p-4">
-			<h1 class="text-blue-500">This is the home page</h1>
+			<!-- <h1 class="text-blue-500">This is the home page</h1> -->
 			<Assessments :assessments="assessments" />
+            <div class="h-12"></div>
 			<Sessions :sessions="sessions" :userTherapists="userTherapists" />
 		</div>
 	</div>
