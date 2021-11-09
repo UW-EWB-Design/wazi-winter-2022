@@ -2,6 +2,7 @@
 	<div class="home">
 		<div class="p-4">
 			<h1 class="text-blue-500">This is the home page</h1>
+			<Assessments :assessments="assessments" />
 			<Sessions :sessions="sessions" :userTherapists="userTherapists" />
 		</div>
 	</div>
@@ -9,10 +10,14 @@
 
 <script>
 import Sessions from "../components/sessions/Sessions.vue";
+import Assessments from "../components/assessments/Assessments.vue";
 
 export default {
 	name: "Home",
-	components: { Sessions },
+	components: { 
+		Sessions,
+		Assessments,
+	},
 	data() {
 		return {
 			sessions: [
@@ -74,7 +79,44 @@ export default {
                 {
                     name: "John",
                 },
-            ]
+            ],
+			assessments: [
+				{
+					id: 1,
+					name: 'Coronavirus Anxiety Scale (CAS)',
+					description: 'Measures coronavirus-related anxiety',
+					level: 'High',
+					dateTime: 'Mar 3'
+				},
+				{
+					id: 2,
+					name: 'Coronavirus Anxiety Scale (CAS) This assessment has a very long name',
+					description: 'Measures coronavirus-related anxiety. This assessment has a very long description',
+					level: 'Low',
+					dateTime: 'Mar 1' 
+				},
+				{
+					id: 3,
+					name: 'Coronavirus Anxiety Scale (CAS)',
+					description: 'Measures coronavirus-related anxiety',
+					level: 'Moderate',
+					dateTime: 'Feb 28' 
+				},
+				{
+					id: 4,
+					name: 'Coronavirus Anxiety Scale (CAS)',
+					description: 'Measures coronavirus-related anxiety',
+					level: 'High',
+					dateTime: 'Feb 22' 
+				},
+				{
+					id: 5,
+					name: 'Coronavirus Anxiety Scale (CAS)',
+					description: 'Measures coronavirus-related anxiety',
+					level: 'Moderate',
+					dateTime: 'Jan 15' 
+				},
+			]
 		};
 	},
 };
