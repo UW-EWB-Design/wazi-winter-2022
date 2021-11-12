@@ -56,11 +56,10 @@ export default {
     methods: {
         filter(option) {
             // Filter array
-            if (option === 'All') {
+            if (option === 'option1') {
+            } else if (option === 'option2') {
 
-            } else if (option === 'All') {
-
-            } else if (option === 'All') {
+            } else if (option === 'option3') {
 
             } else {
 
