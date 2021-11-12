@@ -1,5 +1,15 @@
 <template>
-  <div class="assessment-history">
-    <h1>This is the full assessment history page.</h1>
-  </div>
+	<div class="assessment-history">
+		<Toolbar />
+	</div>
 </template>
+
+<script>
+import Toolbar from "../components/AssessmentsPage/Toolbar.vue";
+export default {
+	name: "AssessmentHistory",
+	components: {
+		Toolbar,
+	},
+};
+</script>
