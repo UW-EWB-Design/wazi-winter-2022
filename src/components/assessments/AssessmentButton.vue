@@ -27,7 +27,7 @@ export default {
 
 .AssessmentButton:hover {
   background-color: orange;
-  color: black;
+  color: white;
 }
 
 span {

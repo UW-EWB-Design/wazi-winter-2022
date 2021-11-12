@@ -24,47 +24,41 @@ export default {
 			sessions: [
 				{
 					therapist: "Dr.Smith",
-					date: "Mar 1",
-					time: "3 PM",
+                    datetime:"2021-11-12T05:02:29+0000",
 					notes: "Reason/Additional Note for Session",
                     completed: true,
                     id: 1,
 				},
                 {
 					therapist: "Dr.Lee",
-					date: "Feb 22",
-					time: "1 PM",
+                    datetime:"2021-10-13T05:02:29+0000",
 					notes: "Reason/Additional Note for Session",
                     completed: true,
                     id: 2,
 				},
                 {
 					therapist: "Dr.Lee",
-					date: "Jan 23",
-					time: "7 PM",
+                    datetime:"2021-11-12T05:02:29+0000",
 					notes: "Reason/Additional Note for Session",
                     completed: false,
                     id: 3,
 				},
                 {
 					therapist: "Dr.Lee",
-					datetime: "Dec 23",
-					time: "2 PM",
+					datetime:"2021-10-01T05:02:29+0000",
 					notes: "Reason/Additional Note for Session",
                     completed: false,
                     id: 4,
 				},
                 {
 					therapist: "Dr.Lee",
-					datetime: "Dec 8",
-					time: "4 PM",
+					datetime:"2021-11-12T05:02:29+0000",
 					notes: "Reason/Additional Note for Session",
                     completed: false,
                     id: 5,
 				},{
 					therapist: "Dr.Lee",
-					datetime: "Nov 7",
-					time: "7 PM",
+					datetime:"2021-11-12T05:02:29+0000",
 					notes: "Reason/Additional Note for Session",
                     completed: false,
                     id: 6,
@@ -87,35 +81,35 @@ export default {
 					name: 'Coronavirus Anxiety Scale (CAS)',
 					description: 'Measures coronavirus-related anxiety',
 					level: 'High',
-					dateTime: 'Mar 3'
+					datetime:"2021-11-12T05:02:29+0000",
 				},
 				{
 					id: 2,
 					name: 'Coronavirus Anxiety Scale (CAS) This assessment has a very long name',
 					description: 'Measures coronavirus-related anxiety. This assessment has a very long description',
 					level: 'Low',
-					dateTime: 'Mar 1' 
+					datetime:"2021-11-12T05:02:29+0000",
 				},
 				{
 					id: 3,
 					name: 'Coronavirus Anxiety Scale (CAS)',
 					description: 'Measures coronavirus-related anxiety',
 					level: 'Moderate',
-					dateTime: 'Feb 28' 
+					datetime:"2021-11-12T05:02:29+0000",
 				},
 				{
 					id: 4,
 					name: 'Coronavirus Anxiety Scale (CAS)',
 					description: 'Measures coronavirus-related anxiety',
 					level: 'High',
-					dateTime: 'Feb 22' 
+					datetime:"2021-11-12T05:02:29+0000",
 				},
 				{
 					id: 5,
 					name: 'Coronavirus Anxiety Scale (CAS)',
 					description: 'Measures coronavirus-related anxiety',
 					level: 'Moderate',
-					dateTime: 'Jan 15' 
+					datetime:"2021-11-12T05:02:29+0000",
 				},
 			]
 		};

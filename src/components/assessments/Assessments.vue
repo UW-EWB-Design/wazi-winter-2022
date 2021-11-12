@@ -22,7 +22,7 @@
 					</ul>
 				</div>
 				<div class="pt-2">
-					<a class="text-sm underline cursor-pointer hover:bold" href="#">See full history</a>
+					<a class="text-sm text-blue-500 font-bold cursor-pointer hover:bold" href="#">See full history</a>
 				</div>
 			</div>
 		</div>
