@@ -1,6 +1,7 @@
 <template>
-<button class="AssessmentButton">
-  <span class="text-lg leading-tight">+</span><slot>Take an Assessment</slot>
+<button class="AssessmentButton w-full">
+  <span class="text-lg leading-tight
+						 ">+</span><slot>Take an Assessment</slot>
 </button>
 </template>
 
@@ -22,12 +23,11 @@ export default {
   transition-duration: 0.4s;
   font-weight: 700;
   font-size: 15px;
-  width: 640px;
 }
 
 .AssessmentButton:hover {
   background-color: orange;
-  color: black;
+  color: white;
 }
 
 span {
