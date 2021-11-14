@@ -1,9 +1,12 @@
 <template>
 	<div class="w-full flex justify-center">
 		<!-- Advanced Filter button: Opens modal -->
-		<button class="relative font-bold rounded-sm w-24 py-2 my-2 h-10 border border-black duration-300 hover:bg-gray-100">
+		<button class="relative font-bold rounded-sm w-24 py-2 my-2 h-10 border border-black duration-300 hover:bg-gray-100" @click="showModal = true">
 			<span class="absolute left-3 text-lg leading-tight">+</span>Filter
 		</button>
+		<!-- Advanced Filter Modal -->
+		<FilterModal v-if="showModal" @close="showModal = false" />
+
 		<!-- Filter Dropdown -->
 		<div class="relative w-max">
 			<!-- Button -->
@@ -13,8 +16,10 @@
 				aria-expanded="false"
 				@click="isOpen = !isOpen"
 			>
-				<p>View <b>{{assessmentFilter}} Assessments</b></p>
-				<svg class="h-5 w-5 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+				<p>
+					View <b>{{ assessmentFilter }} Assessments</b>
+				</p>
+				<svg class="ml-3 h-5 w-5 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 					<path
 						fill-rule="evenodd"
 						d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
@@ -33,14 +38,16 @@
 			>
 				<div
 					v-show="isOpen"
-					class="px-5 absolute w-full rounded-sm cursor-pointer text-sm font-bold bg-white "
+					class="px-5 absolute w-full rounded-sm cursor-pointer text-sm font-bold bg-white"
 					role="menu"
 					aria-orientation="vertical"
 					aria-labelledby="filter-menu"
 				>
 					<a class="block px-4 py-2 hover:bg-gray-100 border border-black border-t-0 duration-300" role="menuitem" @click="filter('all')">All</a>
 					<a class="block px-4 py-2 hover:bg-gray-100 border border-black border-t-0 duration-300" role="menuitem" @click="filter('high')">High</a>
-					<a class="block px-4 py-2 hover:bg-gray-100 border border-black border-t-0 duration-300" role="menuitem" @click="filter('moderate')">Moderate</a>
+					<a class="block px-4 py-2 hover:bg-gray-100 border border-black border-t-0 duration-300" role="menuitem" @click="filter('moderate')"
+						>Moderate</a
+					>
 					<a class="block px-4 py-2 hover:bg-gray-100 border border-black border-t-0 duration-300" role="menuitem" @click="filter('low')">Low</a>
 				</div>
 			</transition>
@@ -49,29 +56,34 @@
 </template>
 
 <script>
+import FilterModal from "../AdvancedFilterModal/FilterModal.vue";
+
 export default {
 	data: () => ({
-        assessmentFilter:'All',
+		assessmentFilter: "All",
 		isOpen: false,
+		showModal: false,
 	}),
+	components: {
+		FilterModal,
+	},
 	methods: {
 		filter(option) {
-            this.isOpen = false;
+			this.isOpen = false;
 			// Pass selected filter to parent component
 			if (option === "high") {
-                // Sets local state
-                this.assessmentFilter = "High";
-                // Passes state to parent
+				// Sets local state
+				this.assessmentFilter = "High";
+				// Passes state to parent
 				this.$emit("filter", "high");
-				
 			} else if (option === "moderate") {
-                this.assessmentFilter = "Moderate";
+				this.assessmentFilter = "Moderate";
 				this.$emit("filter", "moderate");
 			} else if (option === "low") {
-                this.assessmentFilter = "Low";
+				this.assessmentFilter = "Low";
 				this.$emit("filter", "low");
 			} else {
-                this.assessmentFilter = "All";
+				this.assessmentFilter = "All";
 				this.$emit("filter", "all");
 			}
 		},
