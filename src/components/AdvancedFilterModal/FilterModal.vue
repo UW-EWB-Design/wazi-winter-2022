@@ -3,15 +3,13 @@
 		<div class="fixed z-50 top-0 left-0 w-full h-full bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out">
 			<div class="align-top pt-24">
 				<div class="w-96 h-auto text-sm shadow shadow-xl mx-auto pt-5 bg-white rounded-sm transition-all duration-300 ease-in-out">
-					<div class="mt-0">
+					<div class="p-2">
 						<p class="pb-2">Assessments</p>
 						<p class="text-xl font-semibold">Advanced Filters</p>
-					</div>
-					<div class="text-left mt-2">
-						<!-- Filter 1 -->
-						<div class="mt-5">
-							<p class="ml-5">Assessment Name</p>
-							<div>
+						<div class="text-left my-5">
+							<!-- Filter 1 -->
+							<div class="mt-5">
+								<p class="ml-5">Assessment Name</p>
 								<Dropdown
 									:selected="filterProps1.selected"
 									:action="filterProps1.action"
@@ -22,43 +20,44 @@
 									v-on:filter="onFilter1"
 								/>
 							</div>
+							<!-- Filter 2 -->
+							<div class="mt-5">
+								<p class="ml-5">Sort By</p>
+								<Dropdown
+									:selected="filterProps2.selected"
+									:action="filterProps2.action"
+									:description="filterProps2.description"
+									:options="filterProps2.options"
+									:zIndex="filterProps2.zIndex"
+									v-on:filter="onFilter2"
+								/>
+							</div>
+							<!-- Date Filtering -->
+							<div class="mt-10 ml-5">
+								<p class="mb-2">Dates</p>
+								<p>From:</p>
+								<p class="font-bold">Wednesday, June 2</p>
+								<p class="mt-2">To:</p>
+								<p class="font-bold">Wednesday, June 3</p>
+							</div>
+							<!-- Filter 3 -->
+							<div class="mt-10">
+								<p class="ml-5">Label - Severity of Result</p>
+								<Dropdown
+									:selected="filterProps3.selected"
+									:action="filterProps3.action"
+									:description="filterProps3.description"
+									:options="filterProps3.options"
+									:zIndex="filterProps3.zIndex"
+									v-on:filter="onFilter3"
+								/>
+							</div>
 						</div>
-						<!-- Filter 2 -->
-						<div class="mt-5">
-							<p class="ml-5">Sort By</p>
-							<Dropdown
-								:selected="filterProps2.selected"
-								:action="filterProps2.action"
-								:description="filterProps2.description"
-								:options="filterProps2.options"
-								:zIndex="filterProps2.zIndex"
-								v-on:filter="onFilter2"
-							/>
+						<!-- Buttons -->
+						<div class="mt-10 flex justify-around">
+							<button class="p-3 w-1/2 hover:bg-gray-100 duration-300" @click="$emit('close')">Cancel</button>
+							<button class="p-3 w-1/2 hover:bg-gray-100 duration-300" @click="$emit('close')">Apply</button>
 						</div>
-						<!-- Date Filtering -->
-						<div class="mt-5 ml-5">
-							<p class="mb-2">Dates</p>
-							<p>From:</p>
-							<p class="font-bold">Wednesday, June 2</p>
-							<p>To:</p>
-							<p class="font-bold">Wednesday, June 3</p>
-						</div>
-						<!-- Filter 3 -->
-						<div class="mt-5">
-							<p class="ml-5">Label - Severity of Result</p>
-							<Dropdown
-								:selected="filterProps3.selected"
-								:action="filterProps3.action"
-								:description="filterProps3.description"
-								:options="filterProps3.options"
-								:zIndex="filterProps3.zIndex"
-								v-on:filter="onFilter3"
-							/>
-						</div>
-					</div>
-					<div class="my-5 flex justify-around">
-						<button class="p-3 w-1/2 hover:bg-gray-100 duration-300" @click="$emit('close')">Cancel</button>
-						<button class="p-3 w-1/2 hover:bg-gray-100 duration-300" @click="$emit('close')">Apply</button>
 					</div>
 				</div>
 			</div>
@@ -67,11 +66,16 @@
 </template>
 
 <script>
-import Dropdown from "./dropdown.vue";
+import Dropdown from "../dropdown.vue";
 
 export default {
+	components: {
+		Dropdown,
+	},
 	data: () => ({
+		// Objects that pass properties to dropdown component to describe the behaviour
 		filterProps1: {
+			type: "Name",
 			selected: "All",
 			action: "",
 			description: "Assessments",
@@ -80,6 +84,7 @@ export default {
 			zIndex: "z-50",
 		},
 		filterProps2: {
+			type: "Sort",
 			selected: "Recent",
 			action: "",
 			description: "",
@@ -88,6 +93,7 @@ export default {
 			zIndex: "z-40",
 		},
 		filterProps3: {
+			type: "Label",
 			selected: "All",
 			action: "",
 			description: "Labels",
@@ -96,10 +102,8 @@ export default {
 			zIndex: "z-30",
 		},
 	}),
-	components: {
-		Dropdown,
-	},
 	methods: {
+		// Different filtering method for each filter
 		onFilter1(option) {
 			this.filterProps1.selected = option;
 			this.$emit("filter", option);

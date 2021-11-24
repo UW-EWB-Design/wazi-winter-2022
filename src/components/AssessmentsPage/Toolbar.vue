@@ -12,7 +12,6 @@
 			:action="filterProps.action"
 			:description="filterProps.description"
 			:options="filterProps.options"
-			:width="filterProps.width"
 			:zIndex="filterProps.zIndex"
 			v-on:filter="filter"
 		/>
@@ -21,24 +20,23 @@
 
 <script>
 import FilterModal from "../AdvancedFilterModal/FilterModal.vue";
-import Dropdown from "../AdvancedFilterModal/dropdown.vue";
+import Dropdown from "../dropdown.vue";
 
 export default {
+	components: {
+		FilterModal,
+		Dropdown,
+	},
 	data: () => ({
 		filterProps: {
 			selected: "All",
 			action: "View",
 			description: "Assessments",
 			options: ["All", "Low", "Moderate", "High"],
-			width: "w-max",
 			zIndex: "z-50",
 		},
 		showModal: false,
 	}),
-	components: {
-		FilterModal,
-		Dropdown,
-	},
 	methods: {
 		filter(option) {
 			this.filterProps.selected = option;
