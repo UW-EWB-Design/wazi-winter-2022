@@ -7,6 +7,7 @@
 						<p class="pb-2">Assessments</p>
 						<p class="text-xl font-semibold">Advanced Filters</p>
 						<div class="text-left my-5">
+							<!-- TO DO: Close all other dropdowns when one dropdown is selected -->
 							<!-- Filter 1 -->
 							<div class="mt-5">
 								<p class="ml-5">Assessment Name</p>
@@ -33,6 +34,7 @@
 								/>
 							</div>
 							<!-- Date Filtering -->
+							<!-- TO DO: Replace with a Date selector and turn into dynamic values -->
 							<div class="mt-10 ml-5">
 								<p class="mb-2">Dates</p>
 								<p>From:</p>
@@ -54,6 +56,7 @@
 							</div>
 						</div>
 						<!-- Buttons -->
+                        <!-- TO DO: Add functionality to each button (cancel will cancel filters...)-->
 						<div class="mt-10 flex justify-around">
 							<button class="p-3 w-1/2 hover:bg-gray-100 duration-300" @click="$emit('close')">Cancel</button>
 							<button class="p-3 w-1/2 hover:bg-gray-100 duration-300" @click="$emit('close')">Apply</button>
