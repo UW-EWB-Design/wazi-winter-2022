@@ -7,7 +7,15 @@
 		<!-- Advanced Filter Modal -->
 		<FilterModal v-if="showModal" @close="showModal = false" v-on:filter="advancedFilter" />
 		<!-- Dropdown -->
-		<Dropdown :selectedFilter="assessmentFilter" :filterOptions="filterOptions" v-on:filter="filter" />
+		<Dropdown
+			:selected="filterProps.selected"
+			:action="filterProps.action"
+			:description="filterProps.description"
+			:options="filterProps.options"
+			:width="filterProps.width"
+			:zIndex="filterProps.zIndex"
+			v-on:filter="filter"
+		/>
 	</div>
 </template>
 
@@ -17,8 +25,14 @@ import Dropdown from "../AdvancedFilterModal/dropdown.vue";
 
 export default {
 	data: () => ({
-		assessmentFilter: "All",
-		filterOptions: ["All", "Low", "Moderate", "High"],
+		filterProps: {
+			selected: "All",
+			action: "View",
+			description: "Assessments",
+			options: ["All", "Low", "Moderate", "High"],
+			width: "w-max",
+			zIndex: "z-50",
+		},
 		showModal: false,
 	}),
 	components: {
@@ -27,7 +41,7 @@ export default {
 	},
 	methods: {
 		filter(option) {
-			this.assessmentFilter = option;
+			this.filterProps.selected = option;
 			this.$emit("filter", option);
 		},
 		advancedFilter(option) {
