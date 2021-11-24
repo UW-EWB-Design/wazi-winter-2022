@@ -2,8 +2,8 @@
 	<div class="assessment-history">
 		<Toolbar v-on:filter="filter" v-on:advancedFilter="advancedFilter" />
 		<!-- Here for testing (remove after): -->
-		<p>{{ assessmentFilter }}</p>
-		<p>{{ advancedFilters }}</p>
+		<p>Simple filtering selection: {{ assessmentFilter }}</p>
+		<p>Advanced filtering selection: {{ advancedFilters }}</p>
 	</div>
 </template>
 
@@ -25,6 +25,7 @@ export default {
 		filter(option) {
 			this.assessmentFilter = option;
 		},
+		// TO DO: Get the option from all 3 filter selections as opposed to just 1
 		advancedFilter(option) {
 			this.advancedFilters = option;
 		},
