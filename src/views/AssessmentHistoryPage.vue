@@ -9,17 +9,20 @@
 			<ul>
 				<!-- List of assessments -->
 				<li v-for="assessment in assessments" :key="assessment.id">
-					<AssessmentCard :assessment="assessment" />
+					<AssessmentCard :assessment="assessment"/>
 				</li>
 			</ul>
 		</div>	
 
+		<AddAssessmentButton/>
 	</div>
 </template>
 
 <script>
 import Toolbar from "../components/AssessmentsPage/Toolbar.vue";
-import AssessmentCard from "../components/HomePage/assessments/AssessmentCard.vue";
+import AssessmentCard from "../components/AssessmentsPage/AssessmentCard.vue";
+import AddAssessmentButton from "../components/AssessmentsPage/AddAssessmentButton.vue";
+
 export default {
 	name: "AssessmentHistory",
 	data() {
@@ -69,6 +72,7 @@ export default {
 	components: {
 		Toolbar,
 		AssessmentCard,
+		AddAssessmentButton,
 	},
 	methods: {
 		filter(option) {
