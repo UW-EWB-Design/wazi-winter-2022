@@ -30,6 +30,7 @@
 									:description="filterProps2.description"
 									:options="filterProps2.options"
 									:zIndex="filterProps2.zIndex"
+									:isOpen="filterProps2.isOpen"
 									v-on:filter="onFilter2"
 								/>
 							</div>
@@ -51,12 +52,13 @@
 									:description="filterProps3.description"
 									:options="filterProps3.options"
 									:zIndex="filterProps3.zIndex"
+									:isOpen="filterProps3.isOpen"
 									v-on:filter="onFilter3"
 								/>
 							</div>
 						</div>
 						<!-- Buttons -->
-                        <!-- TO DO: Add functionality to each button (cancel will cancel filters...)-->
+						<!-- TO DO: Add functionality to each button (cancel will cancel filters...)-->
 						<div class="mt-10 flex justify-around">
 							<button class="p-3 w-1/2 hover:bg-gray-100 duration-300" @click="$emit('close')">Cancel</button>
 							<button class="p-3 w-1/2 hover:bg-gray-100 duration-300" @click="$emit('close')">Apply</button>
@@ -120,5 +122,11 @@ export default {
 			this.$emit("filter", option);
 		},
 	},
+	// mounted() {
+	// 	document.addEventListener("click", (this.filterProps.isOpen = false));
+	// },
+	// beforeDestroy() {
+	// 	document.removeEventListener("click", (this.filterProps.isOpen = false));
+	// },
 };
 </script>
