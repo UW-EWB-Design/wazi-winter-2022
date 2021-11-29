@@ -7,32 +7,119 @@
 						<p class="pb-2">Assessments</p>
 						<p class="text-xl font-semibold">Advanced Filters</p>
 						<div class="text-left my-5">
-							<!-- TO DO: Close all other dropdowns when one dropdown is selected -->
+							<!-- TO DO: Extract the duplicated classes -->
 							<!-- Filter 1 -->
 							<div class="mt-5">
 								<p class="ml-5">Assessment Name</p>
-								<Dropdown
-									:selected="filterProps1.selected"
-									:action="filterProps1.action"
-									:description="filterProps1.description"
-									:isOpen="filterProps1.isOpen"
-									:options="filterProps1.options"
-									:zIndex="filterProps1.zIndex"
-									v-on:filter="onFilter1"
-								/>
+								<!-- Dropdown -->
+								<div class="dropdown dropdown1 dropdown-container relative">
+									<!-- Button -->
+									<button
+										class="
+											dropdown
+											dropdown1
+											dropdown-button
+											buttonWidth
+											flex
+											justify-between
+											rounded-sm
+											w-max
+											h-10
+											px-4
+											py-2
+											mt-2
+											mx-5
+											border border-black
+											duration-300
+											hover:bg-gray-100
+										"
+										aria-controls="filter-menu"
+										aria-expanded="false"
+										@click.prevent="filterProps1.isOpen = !filterProps1.isOpen"
+									>
+										<p class="dropdown dropdown1 dropdown-text">
+											View
+											<b class="dropdown dropdown1 dropdown-text">{{ filterProps1.selected }} Assessments</b>
+										</p>
+										<!-- Arrow -->
+										<svg
+											class="dropdown dropdown2 dropdown-icon ml-3 h-5 w-5 ml-2"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 20 20"
+											fill="currentColor"
+											aria-hidden="true"
+										>
+											<path
+												fill-rule="evenodd"
+												d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+												clip-rule="evenodd"
+											/>
+										</svg>
+									</button>
+									<Dropdown
+										:id="filterProps1.id"
+										:selected="filterProps1.selected"
+										:isOpen="filterProps1.isOpen"
+										:options="filterProps1.options"
+										v-on:filter="onFilter1"
+									/>
+								</div>
 							</div>
 							<!-- Filter 2 -->
 							<div class="mt-5">
 								<p class="ml-5">Sort By</p>
-								<Dropdown
-									:selected="filterProps2.selected"
-									:action="filterProps2.action"
-									:description="filterProps2.description"
-									:options="filterProps2.options"
-									:zIndex="filterProps2.zIndex"
-									:isOpen="filterProps2.isOpen"
-									v-on:filter="onFilter2"
-								/>
+								<div class="dropdown dropdown2 dropdown-container relative">
+									<!-- Button -->
+									<button
+										class="
+											dropdown
+											dropdown2
+											dropdown-button
+											buttonWidth
+											flex
+											justify-between
+											rounded-sm
+											w-max
+											h-10
+											px-4
+											py-2
+											mt-2
+											mx-5
+											border border-black
+											duration-300
+											hover:bg-gray-100
+										"
+										aria-controls="filter-menu"
+										aria-expanded="false"
+										@click.prevent="filterProps2.isOpen = !filterProps2.isOpen"
+									>
+										<p class="dropdown dropdown2 dropdown-text">
+											Sort by
+											<b class="dropdown dropdown2 dropdown-text">{{ filterProps2.selected }}</b>
+										</p>
+										<!-- Arrow -->
+										<svg
+											class="dropdown dropdown2 dropdown-icon ml-3 h-5 w-5 ml-2"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 20 20"
+											fill="currentColor"
+											aria-hidden="true"
+										>
+											<path
+												fill-rule="evenodd"
+												d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+												clip-rule="evenodd"
+											/>
+										</svg>
+									</button>
+									<Dropdown
+										:id="filterProps2.id"
+										:selected="filterProps2.selected"
+										:options="filterProps2.options"
+										:isOpen="filterProps2.isOpen"
+										v-on:filter="onFilter2"
+									/>
+								</div>
 							</div>
 							<!-- Date Filtering -->
 							<!-- TO DO: Replace with a Date selector and turn into dynamic values -->
@@ -46,15 +133,58 @@
 							<!-- Filter 3 -->
 							<div class="mt-10">
 								<p class="ml-5">Label - Severity of Result</p>
-								<Dropdown
-									:selected="filterProps3.selected"
-									:action="filterProps3.action"
-									:description="filterProps3.description"
-									:options="filterProps3.options"
-									:zIndex="filterProps3.zIndex"
-									:isOpen="filterProps3.isOpen"
-									v-on:filter="onFilter3"
-								/>
+								<div class="dropdown dropdown3 dropdown-container relative">
+									<!-- Button -->
+									<button
+										class="
+											dropdown
+											dropdown3
+											dropdown-button
+											buttonWidth
+											flex
+											justify-between
+											rounded-sm
+											w-max
+											h-10
+											px-4
+											py-2
+											mt-2
+											mx-5
+											border border-black
+											duration-300
+											hover:bg-gray-100
+										"
+										aria-controls="filter-menu"
+										aria-expanded="false"
+										@click.prevent="filterProps3.isOpen = !filterProps3.isOpen"
+									>
+										<p class="dropdown dropdown3 dropdown-text">
+											View
+											<b class="dropdown dropdown3 dropdown-text">{{ filterProps3.selected }} Labels</b>
+										</p>
+										<!-- Arrow -->
+										<svg
+											class="dropdown dropdown3 dropdown-icon ml-3 h-5 w-5 ml-2"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 20 20"
+											fill="currentColor"
+											aria-hidden="true"
+										>
+											<path
+												fill-rule="evenodd"
+												d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+												clip-rule="evenodd"
+											/>
+										</svg>
+									</button>
+									<Dropdown
+										:id="filterProps3.id"
+										:selected="filterProps3.selected"
+										:options="filterProps3.options"
+										:isOpen="filterProps3.isOpen"
+										v-on:filter="onFilter3"
+									/>
+								</div>
 							</div>
 						</div>
 						<!-- Buttons -->
@@ -81,30 +211,24 @@ export default {
 		// Objects that pass properties to dropdown component to describe the behaviour
 		filterProps1: {
 			type: "Name",
+			id: "dropdown1",
 			selected: "All",
-			action: "",
-			description: "Assessments",
 			isOpen: false,
 			options: ["Name1", "Name2", "Name3"],
-			zIndex: "z-50",
 		},
 		filterProps2: {
 			type: "Sort",
+			id: "dropdown2",
 			selected: "Recent",
-			action: "",
-			description: "",
 			isOpen: false,
 			options: ["Recent", "Recommended"],
-			zIndex: "z-40",
 		},
 		filterProps3: {
 			type: "Label",
+			id: "dropdown3",
 			selected: "All",
-			action: "",
-			description: "Labels",
 			isOpen: false,
 			options: ["All", "Low", "Moderate", "High"],
-			zIndex: "z-30",
 		},
 	}),
 	methods: {
@@ -121,12 +245,31 @@ export default {
 			this.filterProps3.selected = option;
 			this.$emit("filter", option);
 		},
+		close(e) {
+			if (!e.target.classList.contains("dropdown1")) {
+				this.filterProps1.isOpen = false;
+			}
+			if (!e.target.classList.contains("dropdown2")) {
+				this.filterProps2.isOpen = false;
+			}
+			if (!e.target.classList.contains("dropdown3")) {
+				this.filterProps3.isOpen = false;
+			}
+		},
 	},
-	// mounted() {
-	// 	document.addEventListener("click", (this.filterProps.isOpen = false));
-	// },
-	// beforeDestroy() {
-	// 	document.removeEventListener("click", (this.filterProps.isOpen = false));
-	// },
+	mounted() {
+		document.addEventListener("click", this.close);
+	},
+	beforeDestroy() {
+		document.removeEventListener("click", this.close);
+	},
 };
 </script>
+
+<style scoped>
+.buttonWidth {
+	width: -moz-available;
+	width: -webkit-fill-available;
+	width: fill-available;
+}
+</style>

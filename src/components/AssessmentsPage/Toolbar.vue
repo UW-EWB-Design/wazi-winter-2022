@@ -26,14 +26,13 @@
 					duration-300
 					hover:bg-gray-100
 				"
-				:class="zIndex"
 				aria-controls="filter-menu"
 				aria-expanded="false"
 				@click.prevent="filterProps.isOpen = !filterProps.isOpen"
 			>
 				<p class="dropdown dropdown-text">
-					{{ filterProps.action }}
-					<b class="dropdown dropdown-text">{{ filterProps.selected }} {{ filterProps.description }}</b>
+					View
+					<b class="dropdown dropdown-text">{{ filterProps.selected }} Assessments</b>
 				</p>
 				<!-- Arrow -->
 				<svg
@@ -50,15 +49,7 @@
 					/>
 				</svg>
 			</button>
-			<Dropdown
-				:selected="filterProps.selected"
-				:action="filterProps.action"
-				:description="filterProps.description"
-				:options="filterProps.options"
-				:zIndex="filterProps.zIndex"
-				:isOpen="filterProps.isOpen"
-				v-on:filter="filter"
-			/>
+			<Dropdown :selected="filterProps.selected" :options="filterProps.options" :isOpen="filterProps.isOpen" v-on:filter="filter" />
 		</div>
 	</div>
 </template>
@@ -75,10 +66,7 @@ export default {
 	data: () => ({
 		filterProps: {
 			selected: "All",
-			action: "View",
-			description: "Assessments",
 			options: ["All", "Low", "Moderate", "High"],
-			zIndex: "z-40",
 			isOpen: false,
 		},
 		showModal: false,
@@ -97,10 +85,7 @@ export default {
 			this.showModal = true;
 		},
 		closeDropdown(e) {
-			console.log("click", e);
 			if (!e.target.classList.contains("dropdown")) {
-				//if (!this.$el.contains(e.target)) {
-				console.log("here");
 				this.filterProps.isOpen = false;
 			}
 		},

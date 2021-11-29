@@ -12,8 +12,8 @@
 	>
 		<div
 			v-show="isOpen"
-			class="dropdown px-5 absolute w-full cursor-pointer text-sm font-medium"
-			v-bind:class="zIndex"
+			class="dropdown z-40 px-5 absolute w-full cursor-pointer text-sm font-medium"
+			:class="id"
 			role="menu"
 			aria-orientation="vertical"
 			aria-labelledby="filter-menu"
@@ -36,7 +36,7 @@
 <script>
 export default {
 	name: "Dropdown",
-	props: { selected: String, description: String, action: String, isOpen: Boolean, options: Array, zIndex: String },
+	props: { selected: String, description: String, action: String, isOpen: Boolean, options: Array, id: String },
 	methods: {
 		filter(option) {
 			// passes to parent
@@ -45,11 +45,3 @@ export default {
 	},
 };
 </script>
-
-<style scoped>
-.buttonWidth {
-	width: -moz-available;
-	width: -webkit-fill-available;
-	width: fill-available;
-}
-</style>
