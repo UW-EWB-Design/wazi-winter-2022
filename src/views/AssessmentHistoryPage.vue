@@ -2,15 +2,24 @@
 	<div class="assessment-history ">
 		<Toolbar v-on:filter="filter" v-on:advancedFilter="advancedFilter" />
 		<!-- Here for testing (remove after): -->
+
 		<p>Simple filtering selection: {{ assessmentFilter }}</p>
 		<p>Advanced filtering selection: {{ advancedFilters }}</p>
 
+		
 		<div class="max-w-md mx-auto">
 			<ul>
 				<!-- List of assessments -->
-				<li v-for="assessment in assessments" :key="assessment.id">
+				<div v-if="assessmentFilter === 'All'">
+					<li v-for="assessment in assessments" :key="assessment.id">
 					<AssessmentCard :assessment="assessment"/>
-				</li>
+					</li>
+				</div>
+				<div v-else>
+					<li v-for="assessment in filteredAssessments" :key="assessment.id">
+					<AssessmentCard :assessment="assessment"/>
+					</li>
+				</div>
 			</ul>
 		</div>	
 
@@ -83,5 +92,13 @@ export default {
 			this.advancedFilters = option;
 		},
 	},
+
+	computed: {
+		filteredAssessments: function(){
+			return this.assessments.filter((assessments) => {
+				return assessments.level === this.assessmentFilter;
+			});
+		},
+	}
 };
 </script>

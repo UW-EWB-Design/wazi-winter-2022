@@ -42,7 +42,8 @@ export default {
                 'text-yellow-400': this.assessment.level == "Moderate",
                 'text-green-500': this.assessment.level == "Low",
             }
-        }
+        },
+
 	},
 };
 </script>

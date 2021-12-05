@@ -1,6 +1,6 @@
 <template>
     <div class="AddAssessmentButton">
-        <div class="w-36 mx-auto my-2 p-3 rounded-full bg-blue-500 text-white">
+        <div class="w-48 mx-auto my-2 p-3 rounded-full bg-blue-500 text-white">
             <p>+ Assessment</p>
         </div>
         
