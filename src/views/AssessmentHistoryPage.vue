@@ -10,13 +10,20 @@
 		<div class="max-w-md mx-auto">
 			<ul>
 				<!-- List of assessments -->
-				<div v-if="assessmentFilter === 'All'">
-					<li v-for="assessment in assessments" :key="assessment.id">
-					<AssessmentCard :assessment="assessment"/>
+				<div v-if="advancedFilters !== 'All'">
+					<li v-for="assessment in advancedFilteredAssessments" :key="assessment.id">
+						<AssessmentCard :assessment="assessment"/>
 					</li>
 				</div>
-				<div v-else>
+
+				<div v-else-if="assessmentFilter !== 'All'">
 					<li v-for="assessment in filteredAssessments" :key="assessment.id">
+						<AssessmentCard :assessment="assessment"/>
+					</li>
+				</div>
+
+				<div v-else>
+					<li v-for="assessment in assessments" :key="assessment.id">
 					<AssessmentCard :assessment="assessment"/>
 					</li>
 				</div>
@@ -38,7 +45,7 @@ export default {
 		return {
 			// Pass to card list to use for filtering
 			assessmentFilter: "All",
-			advancedFilters: "Advanced",
+			advancedFilters: "All",
 			assessments: [
 				{
 					id: 1,
@@ -99,6 +106,12 @@ export default {
 				return assessments.level === this.assessmentFilter;
 			});
 		},
+
+		advancedFilteredAssessments: function(){
+			return this.assessments.filter((assessments) => {
+				return assessments.level === this.advancedFilters;
+			})
+		}
 	}
 };
 </script>
