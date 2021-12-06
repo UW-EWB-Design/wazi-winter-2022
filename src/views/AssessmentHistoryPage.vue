@@ -1,12 +1,7 @@
 <template>
 	<div class="assessment-history ">
 		<Toolbar v-on:filter="filter" v-on:advancedFilter="advancedFilter" />
-		<!-- Here for testing (remove after): -->
 
-		<p>Simple filtering selection: {{ assessmentFilter }}</p>
-		<p>Advanced filtering selection: {{ advancedFilters }}</p>
-
-		
 		<div class="max-w-md mx-auto">
 			<ul>
 				<!-- List of assessments -->
