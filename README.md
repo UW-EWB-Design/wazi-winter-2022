@@ -1,6 +1,7 @@
 # EWB/WAZI COllaboration - Fall 2021
 
-This project started front-end development for WAZI's website redesign. 
+This project started development for WAZI's website redesign, using Vue.js and TailwindCSS, based on a previously made [Figma design](https://www.figma.com/file/QRVrR5BHyJPY4QGnqJwLwF/Wazi-Collab---EWB?node-id=607%3A813).
+
 Two pages were developed: the 'Home' page and the 'Assessment History' page. 
 
 The 'Home' page has two components: one that lists the user's recent assessments, and another that lists the user's recent therapy sessions. 
