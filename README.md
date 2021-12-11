@@ -1,4 +1,4 @@
-# EWB/WAZI COllaboration - Fall 2021
+# EWB/WAZI Collaboration - Fall 2021
 
 This project started development for WAZI's website redesign, using **Vue.js** and **TailwindCSS**, based on a previously made [Figma design](https://www.figma.com/file/QRVrR5BHyJPY4QGnqJwLwF/Wazi-Collab---EWB?node-id=607%3A813).
 
